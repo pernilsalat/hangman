@@ -16,6 +16,9 @@ defmodule BrowserLiveWeb.Live.Game.FigureSelector do
       <% else %>
         <%= live_component(Figures.AsciiFigure, tally: assigns.tally, id: 11) %>
       <% end %>
+      <p class="turns-left">
+        Turns left: <%= @tally.turns_left %>
+      </p>
     </div>
     """
   end

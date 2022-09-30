@@ -1,9 +1,9 @@
-defmodule Dictionary.MixProject do
+defmodule Cli.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :dictionary,
+      app: :cli,
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
@@ -14,7 +14,7 @@ defmodule Dictionary.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: { Dictionary.Runtime.Application, [] },
+      included_applications: [ :hangman ],
       extra_applications: [:logger]
     ]
   end
@@ -22,8 +22,7 @@ defmodule Dictionary.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      { :hangman, path: "../hangman" }
     ]
   end
 end
